@@ -1,7 +1,7 @@
 import { writable, Writable } from 'svelte/store';
 import { address } from './address.store';
 
-const api: string = "http://api-beta.banano.cc";
+const api: string = "https://api-beta.banano.cc";
 
 export const history: Writable<Transaction[]> = writable([]);
 
