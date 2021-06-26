@@ -3,8 +3,8 @@
 interface Transaction {
     type: string,
     account: 'string',
-    amount: 'string',
-    local_timestamp: 'string',
+    amount: number,
+    date: 'string',
     height: 'string',
     hash: 'string'
 }
