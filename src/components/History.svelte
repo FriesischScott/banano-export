@@ -34,18 +34,24 @@
   }
 </script>
 
-{#if $progress}
-  <Spinner />
+{#if $error}
+  <div class="text-white bg-red-500 my-4 rounded p-4">
+    {$error}
+  </div>
 {/if}
 
-{#if !$progress && $history && !$error}
+<div class="mt-4 mb-2 text-gray-200">Account Info</div>
+
+<div class="flex items-center">
   <div class="flex">
-    <div class="bg-white rounded p-4 my-4 flex-shrink">
+    <div class="bg-white rounded p-4 flex-shrink">
       <div class="flex flex-col items-center">
-        <div>
-          <img src={$monkey} alt="Monkey" class="h-20" />
-        </div>
-        <div class="flex justify-between gap-4 text-sm mt-4">
+        {#if $monkey}
+          <div class="mb-4">
+            <img src={$monkey} alt="Monkey" class="h-20" />
+          </div>
+        {/if}
+        <div class="flex justify-between gap-4 text-sm">
           <p class="flex flex-col">
             BAN
             <span>{$balance.toFixed(2)}</span>
@@ -63,7 +69,13 @@
     </div>
   </div>
 
-  <button on:click={downloadCSV} class="bg-banano-yellow rounded p-2"
+  {#if $progress}
+    <Spinner />
+  {/if}
+</div>
+
+{#if $history && !$progress}
+  <button on:click={downloadCSV} class="bg-banano-yellow rounded p-2 my-4"
     >Export Koinly CSV</button
   >
 {/if}

@@ -1,4 +1,4 @@
-<div class="lds-default my-4">
+<div class="lds-default m-4">
   <div />
   <div />
   <div />
