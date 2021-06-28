@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { address } from "../stores/address.store";
+  import { progress, search } from "../stores/history.store";
 
-  let addressInput: string = "";
+  let address_value: string = "";
 
-  function search() {
-    address.set(addressInput);
+  function click() {
+    search(address_value);
   }
 </script>
 
@@ -16,11 +16,14 @@
     <input
       type="text"
       placeholder="BAN Address..."
-      bind:value={addressInput}
-      class="bg-white font-mono flex-grow rounded border p-2 mr-4"
+      bind:value={address_value}
+      class="bg-white font-mono flex-grow rounded p-2 mr-4 focus:outline-none"
     />
 
-    <button on:click={search} class="p-2 bg-banano-green rounded">Search</button
+    <button
+      on:click={click}
+      disabled={$progress}
+      class="p-2 bg-banano-green rounded">Search</button
     >
   </div>
 </div>

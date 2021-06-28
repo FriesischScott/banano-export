@@ -1174,6 +1174,13 @@ supports-color@^7.0.0, supports-color@^7.1.0:
   dependencies:
     has-flag "^4.0.0"
 
+svelte-awesome@^2.3.2:
+  version "2.3.2"
+  resolved "https://registry.yarnpkg.com/svelte-awesome/-/svelte-awesome-2.3.2.tgz#aed33e0b0714565bb0ce925e7c972ea73b70c5a4"
+  integrity sha512-odkwkVSYEARI/4CskjwoI7KIhds1Ui74H1VFAifWuDoczY+JpPeJuBwDqgo8imM7Bd76U+ns7Yf1iQqveHnx5Q==
+  dependencies:
+    svelte "^3.15.0"
+
 svelte-check@^2.0.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/svelte-check/-/svelte-check-2.2.0.tgz#9a2f870288e1bd5c499e6c1a47a79dbdcd3f3962"
@@ -1199,7 +1206,7 @@ svelte-preprocess@^4.0.0, svelte-preprocess@^4.7.3:
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
 
-svelte@^3.0.0:
+svelte@^3.0.0, svelte@^3.15.0:
   version "3.38.3"
   resolved "https://registry.yarnpkg.com/svelte/-/svelte-3.38.3.tgz#e15a1da98ee4b10162a6c8cb4c80aa86b2b589ed"
   integrity sha512-N7bBZJH0iF24wsalFZF+fVYMUOigaAUQMIcEKHO3jstK/iL8VmP9xE+P0/a76+FkNcWt+TDv2Gx1taUoUscrvw==

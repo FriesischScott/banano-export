@@ -23,9 +23,9 @@
       <div class="text-white mb-6">
         This tool can be used to export the transaction history (deposits,
         withdrawals) of any Banano address as a CSV file in order to import it
-        into portfolio trackers or crypto tax software such as which do not
-        support Banano as of yet. The list of exportable formats will be
-        constantly extended. To request a new format reach out to <a
+        into portfolio trackers or crypto tax softwares which do not support
+        Banano as of yet. The list of exportable formats will be constantly
+        extended. To request a new format reach out to <a
           href="https://www.reddit.com/user/FriesischScott"
           target="_"
           class="text-blue-400 hover:underline">/u/FriesischScott</a
@@ -37,7 +37,7 @@
           target="_">Github</a
         >.
       </div>
-      <div class="text-white mb-6">Currently availables formats: Koinly</div>
+      <div class="text-white mb-6">Currently available formats: Koinly</div>
       <AddressSearchBar />
       <History />
     </div>
