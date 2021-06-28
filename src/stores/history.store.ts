@@ -72,7 +72,7 @@ export const search = async (addr: string) => {
         body: JSON.stringify({
           action: "account_history",
           account: addr,
-          count: 100,
+          count: 50,
         }),
       });
 
@@ -92,7 +92,7 @@ export const search = async (addr: string) => {
             body: JSON.stringify({
               action: "account_history",
               account: addr,
-              count: 100,
+              count: 50,
               head: json.previous,
             }),
           });
