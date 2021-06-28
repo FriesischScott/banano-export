@@ -3,8 +3,6 @@ import { address } from './address.store';
 
 export const history: Writable<Transaction[]> = writable([]);
 
-const dateFormat = '%Y-%m-%d %H:%M%S';
-
 const minorDivisor : bigint = BigInt('1000000000000000000000000000');
 const majorDivisor : bigint = BigInt('100000000000000000000000000000');
 
@@ -15,7 +13,6 @@ function rawToNumber(raw: string) {
     const majorRawRemainder = amountRaw - (major * majorDivisor);
 
     const minor = majorRawRemainder / minorDivisor;
-    const amountRawRemainder = majorRawRemainder - (minor * minorDivisor);
 
     return Number(major) + (Number(minor) / 100.0);
 }
@@ -26,7 +23,7 @@ function pad(n: number) : string {
 function format(date: Date) : string {
     const year : string = `${date.getFullYear()}`;
     const month : string = pad(date.getMonth() + 1);
-    const day : string = pad(date.getDay());
+    const day : string = pad(date.getDate());
 
     const hours : string = pad(date.getHours());
     const minutes : string = pad(date.getMinutes());
