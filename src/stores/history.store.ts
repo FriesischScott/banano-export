@@ -11,23 +11,13 @@ export const history: Writable<Transaction[]> = writable(null);
 export const progress: Writable<boolean> = writable(false);
 export const error: Writable<string> = writable("");
 
-const minorDivisor: bigint = BigInt("1000000000000000000000000000");
-const majorDivisor: bigint = BigInt("100000000000000000000000000000");
-
-function rawToNumber(raw: string) {
-  const amountRaw: bigint = BigInt(raw);
-
-  const major = amountRaw / majorDivisor;
-  const majorRawRemainder = amountRaw - major * majorDivisor;
-
-  const minor = majorRawRemainder / minorDivisor;
-
-  return Number(major) + Number(minor) / 100.0;
-}
+// Divide RAW by this number to get BAN as decimal
+const banano_divisor: number = 100000000000000000000000000000.0;
 
 function pad(n: number): string {
   return ("00" + n).slice(-2);
 }
+
 function format(date: Date): string {
   const year: string = `${date.getFullYear()}`;
   const month: string = pad(date.getMonth() + 1);
@@ -40,12 +30,12 @@ function format(date: Date): string {
   return `${year}-${month}-${day} ${hours}:${minutes}:${seconds}`;
 }
 
-function parseHistory(history) {
+function parseHistory(history): Transaction[] {
   return history.map((t) => {
     const sign: number = t.type == "receive" ? 1.0 : -1.0;
     return {
       date: format(new Date(Number(t.local_timestamp) * 1000)),
-      amount: sign * rawToNumber(t.amount),
+      amount: (sign * Number(t.amount)) / banano_divisor,
       hash: t.hash,
     };
   });
@@ -102,7 +92,6 @@ export const search = async (addr: string) => {
           json = await res.json();
           transactions = [...transactions, ...parseHistory(json.history)];
 
-          console.log(transactions);
           history.set(transactions);
         }
       } else {

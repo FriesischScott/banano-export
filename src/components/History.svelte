@@ -15,7 +15,7 @@
     let csv: string = "Koinly Date,Amount,Currency,Label,TxHash\n";
 
     $history.forEach((t) => {
-      csv += `${t.date},${t.amount.toFixed(2)},BAN,,${t.hash}\n`;
+      csv += `${t.date},${t.amount},BAN,,${t.hash}\n`;
     });
 
     const element = document.createElement("a");
