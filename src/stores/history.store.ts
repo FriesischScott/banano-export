@@ -41,7 +41,7 @@ function parseHistory(history): Transaction[] {
   });
 }
 
-const BANANO_API_URL: string = "https://banano-api-proxy.herokuapp.com/banano";
+const BANANO_API_URL: string = "https://kaliumapi.appditto.com/api";
 
 export const search = async (addr: string) => {
   error.set("");
