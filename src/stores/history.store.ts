@@ -62,7 +62,8 @@ export const search = async (addr: string) => {
         body: JSON.stringify({
           action: "account_history",
           account: addr,
-          count: 50,
+          count: -1,
+          reverse: true,
         }),
       });
 
@@ -76,14 +77,15 @@ export const search = async (addr: string) => {
         let transactions = parseHistory(json.history);
         history.set(transactions);
 
-        while (json.previous) {
+        while (json.next) {
           res = await fetch(BANANO_API_URL, {
             method: "POST",
             body: JSON.stringify({
               action: "account_history",
               account: addr,
-              count: 50,
-              head: json.previous,
+              count: -1,
+              reverse: true,
+              head: json.next,
             }),
           });
           if (res.status != 200) {
